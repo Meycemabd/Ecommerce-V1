@@ -19,7 +19,7 @@ export default class NavBar extends Component {
   }
   render() {
     return (
-      <Navbar expand="lg" className="navbar navbar-dark bg-info">
+      <Navbar expand="lg" className="navbar navbar-dark bg-primary">
       <Container fluid>
         <Navbar.Brand href="#">ShopExpress</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
