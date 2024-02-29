@@ -13,10 +13,12 @@ export default class App extends Component {
     this.state = {
       data : [],
       view : "products",
-      product: {}
+      product: {},
+      searchQuerry: ""
     }
     this.changeView = this.changeView.bind(this)
     this.changeProduct = this.changeProduct.bind(this)
+    this.setState = this.setState.bind(this)
   }
   componentDidMount(){
     this.setState({
@@ -37,8 +39,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <NavBar changeView={this.changeView} />
-      {this.state.data.length && this.state.view === "products" && <Products products={this.state.data} changeView = {this.changeView} changeProduct = {this.changeProduct}/>}
+        <NavBar changeView={this.changeView} setState ={this.setState} />
+      {this.state.data.length && this.state.view === "products" && <Products products={this.state.data} changeView = {this.changeView} changeProduct = {this.changeProduct} searchQuerry = {this.state.searchQuerry}/>}
       {this.state.view === "cart" && <Cart/>}
       {this.state.view === "productDetails" && <ProductDetails product = {this.state.product}/>}
         <Footer />

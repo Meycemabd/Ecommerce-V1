@@ -16,10 +16,16 @@ import { FaShoppingCart } from "react-icons/fa";
 export default class NavBar extends Component {
   constructor(props){
     super(props);
+    
+  }
+  search(str){
+    this.props.setState({
+      searchQuerry: str
+    })
   }
   render() {
     return (
-      <Navbar expand="lg" className="navbar navbar-dark bg-primary">
+      <Navbar expand="lg" className="navbar navbar-dark bg-info">
       <Container fluid>
         <Navbar.Brand href="#">ShopExpress</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -30,6 +36,9 @@ export default class NavBar extends Component {
                 type="search"
                 placeholder="Looking for..."
                 className="d-flex justify-content-center"
+                onChange={(eve)=>{
+                  this.search(eve.target.value)
+                }}
                 aria-label="Search"
               />
               <Button variant="outline-dark">
